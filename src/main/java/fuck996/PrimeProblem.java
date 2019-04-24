@@ -18,7 +18,20 @@ public class PrimeProblem {
 	 * @return
 	 */
 	public static boolean isPrime(int num) {
-		return false;
+		if (num < 2)
+			return false;
+		if (num == 2 || num == 3) {
+			return true;
+		}
+
+		int sqrt = (int) Math.sqrt(num);
+
+		for (int i = 2; i <= sqrt; i++) {
+			if (num % i == 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**
@@ -30,6 +43,21 @@ public class PrimeProblem {
 	 * @return
 	 */
 	public static boolean containNum(int num, int targetNum) {
+		if (targetNum < 0 || targetNum > 9) {
+			return false;
+		}
+		if (num == 0 && targetNum == 0) {
+			return true;
+		}
+		while (num != 0) {
+			int a = num % 10;
+
+			if (a == targetNum) {
+				return true;
+			}
+			num /= 10;
+
+		}
 
 		return false;
 	}
@@ -54,15 +82,29 @@ public class PrimeProblem {
 			if (number % i != 0) {
 				continue;
 			}
-
 			int bigNumber = number / i;
-
 			if (!isPrime(bigNumber)) {
 				continue;
 			}
+			// System.out.println(i);
 			result.add(new Integer("" + bigNumber + i));
 		}
-		System.out.println(result);
+
+		System.out.println("输出第一个问题：" + result);
+
+		for (Integer i : result) {
+			int count = 0;
+			for (int j = 1; j <= i; j++) {
+				if (j % 2 == 0) {
+					continue;
+				}
+				boolean contain = containNum(j, 3);
+				if (contain) {
+					count++;
+				}
+			}
+			System.out.println("输出第二个问题的答案：" + count);
+		}
 
 	}
 
