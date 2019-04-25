@@ -1,7 +1,9 @@
 package fuck996;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 某女的征婚问题
@@ -50,16 +52,32 @@ public class PrimeProblem {
 			return true;
 		}
 		while (num != 0) {
+			
 			int a = num % 10;
-
+			
 			if (a == targetNum) {
 				return true;
 			}
 			num /= 10;
-
 		}
-
 		return false;
+	}
+
+	// 这种计数的方法太low了 是否有更好的策略？
+	public static int countNum(int num, int targetNum) {
+		int count = 0;
+
+		for (int j = 1; j <= num; j++) {
+			if (j % 2 == 0) {
+				continue;
+			}
+			boolean contain = containNum(j, 3);
+
+			if (contain) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 	public static void exec() {
@@ -93,16 +111,8 @@ public class PrimeProblem {
 		System.out.println("输出第一个问题：" + result);
 
 		for (Integer i : result) {
-			int count = 0;
-			for (int j = 1; j <= i; j++) {
-				if (j % 2 == 0) {
-					continue;
-				}
-				boolean contain = containNum(j, 3);
-				if (contain) {
-					count++;
-				}
-			}
+			int count = countNum(i, 3);
+			// 287333841
 			System.out.println("输出第二个问题的答案：" + count);
 		}
 
