@@ -27,7 +27,7 @@ public class Tree {
 	}
 
 	public static void main(String[] args) {
-		// ±éÀúÒ»¿ÃÊ÷
+		
 		Tree tree = new Tree();
 		TreeNode<Object> root = tree.getRoot();
 		traversal(root);
