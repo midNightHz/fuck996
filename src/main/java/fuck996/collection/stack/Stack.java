@@ -41,6 +41,7 @@ public class Stack<T> implements MyStack<T> {
 		return t;
 	}
 
+	@SuppressWarnings("hiding")
 	class Node<T> {
 
 		T t;
@@ -58,5 +59,21 @@ public class Stack<T> implements MyStack<T> {
 		public void setNext(Node<T> next) {
 			this.next = next;
 		}
+	}
+
+	public static void main(String[] args) {
+		Stack<Integer> stack = new Stack<>();
+		for (int i = 0; i < 10; i++) {
+			Integer a = (int) (Math.random() * 10000);
+			System.out.println(a);
+			stack.push(a);
+
+		}
+		System.out.println("----------");
+		Integer i;
+		while ((i = stack.pop()) != null) {
+			System.out.println(i);
+		}
+
 	}
 }
