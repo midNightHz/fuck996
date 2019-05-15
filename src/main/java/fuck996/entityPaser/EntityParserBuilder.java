@@ -2,7 +2,7 @@ package fuck996.entityPaser;
 
 public class EntityParserBuilder {
 
-	EntityParser builder(String data) {
+	public static EntityParser builder(String data) {
 		EntityParser  parser=null;
 		//dataÎª¿Õ  -·µ»ØNullDataParser
 		String str=null;
