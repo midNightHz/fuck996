@@ -8,9 +8,14 @@ public interface IClass {
 
 	void method1();
 	
+	
 	//protected void method5();
 
 	default void method2() {
+		
+	}
+	
+	default void method7() {
 		
 	}
 

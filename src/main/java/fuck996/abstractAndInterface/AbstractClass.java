@@ -8,6 +8,10 @@ public abstract class AbstractClass {
 
 	private static final int c = 0;
 	
+	public AbstractClass(){
+		
+	}
+	
 
 	abstract void method1();
 
@@ -16,5 +20,10 @@ public abstract class AbstractClass {
 	}
 
 	protected abstract void method3();
+	
+	public static void main(String[] args) {
+		
+		
+	}
 
 }
